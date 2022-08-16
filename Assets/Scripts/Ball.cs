@@ -6,19 +6,16 @@ public class Ball : MonoBehaviour
 {
     // Start is called before the first frame update
     private Rigidbody rb;
+    private Transform ball_transform;
     public GameObject main_team;
     public Material spartak;
     public Material dinamo;
     private Football_agent main_team_agent;
-    public GameObject help_team;    private void Awake() {
-        main_team_agent = main_team.GetComponent<Football_agent>();
-    }
-    void Start(){
-        rb = GetComponent<Rigidbody>();
-    }
 
-    // Update is called once per frame
-    private void FixedUpdate(){
+    private void Awake() {
+        main_team_agent = main_team.GetComponent<Football_agent>();
+        ball_transform = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerExit(Collider other) {
@@ -40,5 +37,8 @@ public class Ball : MonoBehaviour
                 main_team_agent.SetReward(-10f);
             main_team_agent.EndEpisode();
         }
+    }
+    public void Start_position(){
+        ball_transform.position.Set(Random.Range(-3f, 3f), 1, Random.Range(-33f, 33f));
     }
 }

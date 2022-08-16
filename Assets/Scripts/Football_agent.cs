@@ -8,6 +8,7 @@ using Unity.MLAgents.Actuators;
 public class Football_agent : Agent {
 
     private Main_brain brain;
+    public Bots rivals;
     public Ball space;
     [System.NonSerialized]public bool red_team;
 
@@ -18,6 +19,8 @@ public class Football_agent : Agent {
     public override void OnEpisodeBegin(){
             red_team = Random.Range(0, 1) == 1;
             brain.Start_episode_part1(red_team);
+            rivals.Start_episode_part1(!red_team);
+            space.Start_position()
             // second_team.start_position(!red_team);
     }
 
