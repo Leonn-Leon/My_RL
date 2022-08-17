@@ -80,15 +80,16 @@ public class Main_brain : MonoBehaviour{
     private float hit_power = 700f;
     private float leg_len = 2f;
     public GameObject[] my_players = new GameObject[5];
-    private Transform[] my_players_transform = new Transform[5];
     private Renderer[] my_players_renderer = new Renderer[5];
     public GameObject my_gates;
     public Material spartak;
     public Material dinamo;
 
     private void Awake() {
+        ball_transform = ball.GetComponent<Transform>();
+        ball_rb = ball.GetComponent<Rigidbody>();
         for (int i = 0; i < my_players.Length; i++){
-            my_players_transform[i] = my_players[i].GetComponent<Transform>();
+            my_positions[i] = my_players[i].GetComponent<Transform>().position;
             my_players_renderer[i] = my_players[i].GetComponent<Renderer>();
         }
     }
@@ -98,10 +99,10 @@ public class Main_brain : MonoBehaviour{
         for (int i = 0; i < my_players.Length; i++){
             if (red_team){
                 my_players_renderer[i].material = spartak;
-                my_players_transform[i].position.Set(-5f, 2.106f, -4+i*2);
+                my_positions[i].Set(-5f, 2.106f, -4+i*2);
             }else{
                  my_players_renderer[i].material = dinamo;
-                 my_players_transform[i].position.Set(5f, 2.106f, -4+i*2);
+                 my_positions[i].Set(5f, 2.106f, -4+i*2);
             }
 
         }
