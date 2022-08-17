@@ -17,7 +17,11 @@ public class Bots : MonoBehaviour
         }
     }
 
-    public void Start_episode_part1(bool red_team){
+    public Transform[] GetRivals(){
+        return rivals_transform;
+    }
+
+    public void FixPosition(bool red_team){
         for (int i = 0; i < 5; i++){
             if (red_team)
                 rivals_renderer[i].material = spartak;

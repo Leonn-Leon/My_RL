@@ -849,7 +849,6 @@ GameObject:
   - component: {fileID: 342046343}
   - component: {fileID: 342046345}
   - component: {fileID: 342046344}
-  - component: {fileID: 342046346}
   m_Layer: 0
   m_Name: Spartak
   m_TagString: Untagged
@@ -894,40 +893,19 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  rivals: {fileID: 0}
-  ball: {fileID: 0}
-  my_transform:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &342046345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342046342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9f5920d5cfab54582139b19cc229f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  rotationSpeed: 400
-  face: {fileID: 0}
-  ball: {fileID: 0}
+  rivals: {fileID: 1821414481}
+  ball: {fileID: 1905845253}
   my_players:
   - {fileID: 5363399454043581958}
   - {fileID: 549522695}
   - {fileID: 629647772}
   - {fileID: 1404096986}
   - {fileID: 1694277332}
-  my_gates: {fileID: 1803274041}
+  spartak_gates: {fileID: 170847570}
+  dinamo_gates: {fileID: 1461596336}
   spartak: {fileID: 2100000, guid: b79ab35090cf78e4db26e65837c04406, type: 2}
   dinamo: {fileID: 2100000, guid: 7728ec8263d91aa4f9651c5ac551371d, type: 2}
---- !u!114 &342046346
+--- !u!114 &342046345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -940,19 +918,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
+    VectorObservationSize: 17
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 01000000
-    VectorActionSize: 01000000
+      m_NumContinuousActions: 25
+      BranchSizes: 0200000002000000020000000200000002000000
+    VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
-  m_BehaviorName: My Behavior
+  m_InferenceDevice: 3
+  m_BehaviorType: 1
+  m_BehaviorName: Football
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -2843,14 +2821,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1440af1a3a0e64693310e0ea473460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spartak: {fileID: 0}
-  dinamo: {fileID: 0}
+  spartak: {fileID: 2100000, guid: b79ab35090cf78e4db26e65837c04406, type: 2}
+  dinamo: {fileID: 2100000, guid: 7728ec8263d91aa4f9651c5ac551371d, type: 2}
   rivals:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 133765276}
+  - {fileID: 878721107}
+  - {fileID: 276231574}
+  - {fileID: 894788484}
+  - {fileID: 1695685089}
 --- !u!1 &1849235890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,8 +3051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main_team: {fileID: 342046342}
-  spartak: {fileID: 0}
-  dinamo: {fileID: 0}
+  spartak: {fileID: 2100000, guid: b79ab35090cf78e4db26e65837c04406, type: 2}
+  dinamo: {fileID: 2100000, guid: 7728ec8263d91aa4f9651c5ac551371d, type: 2}
 --- !u!1 &1912884200
 GameObject:
   m_ObjectHideFlags: 0

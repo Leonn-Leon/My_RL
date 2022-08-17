@@ -19,26 +19,27 @@ public class Ball : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
+        main_team_agent.AddReward(-1e-3f);
         main_team_agent.EndEpisode();
     }
     private void OnTriggerEnter(Collider other) {
         Material trigger_mat = other.GetComponent<Renderer>().material;
         if (trigger_mat == spartak){
             if (main_team_agent.red_team)
-                main_team_agent.SetReward(10f);
+                main_team_agent.AddReward(100f);
             else
-                main_team_agent.SetReward(-10f);
+                main_team_agent.AddReward(-100f);
             main_team_agent.EndEpisode();
         }
         else if (trigger_mat == dinamo){
             if (!main_team_agent.red_team)
-                main_team_agent.SetReward(10f);
+                main_team_agent.AddReward(100f);
             else
-                main_team_agent.SetReward(-10f);
+                main_team_agent.SetReward(-100f);
             main_team_agent.EndEpisode();
         }
     }
-    public void Start_position(){
+    public void RandomPosition(){
         ball_transform.position.Set(Random.Range(-3f, 3f), 1, Random.Range(-33f, 33f));
     }
 }

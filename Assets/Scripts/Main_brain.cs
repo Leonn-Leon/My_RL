@@ -14,13 +14,13 @@ public class Main_brain : MonoBehaviour{
 
     
     // States
-
+    /*
     private Vector3 ball_position; // ball_transform.position;
     private Vector3 ball_velocity; // ball_rb.velocity;
     private Vector3[] my_positions = new Vector3[5];
     private Vector3[] my_rotations = new Vector3[5];
     private Vector3[] rivals_positions = new Vector3[5];
-
+    */
 
     // Rewards
     /*
@@ -34,7 +34,7 @@ public class Main_brain : MonoBehaviour{
     if face_to_ball < 10 => 0.001
     elif face_to_ball < 50 => 0.0005
     +
-    relu(ball_to_my_players_distance / ball_to_my_players_distance_past_step)
+    mean(relu(ball_to_my_players_distance / ball_to_my_players_distance_past_step))
     +
     relu(ball_gates_distance / ball_gates_distance_past_step)
     +
@@ -84,7 +84,7 @@ public class Main_brain : MonoBehaviour{
     public GameObject my_gates;
     public Material spartak;
     public Material dinamo;
-
+    /*
     private void Awake() {
         ball_transform = ball.GetComponent<Transform>();
         ball_rb = ball.GetComponent<Rigidbody>();
@@ -108,5 +108,6 @@ public class Main_brain : MonoBehaviour{
         }
 
     }
+    */
 
 }
