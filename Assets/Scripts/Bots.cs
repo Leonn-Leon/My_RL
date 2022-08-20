@@ -7,6 +7,7 @@ public class Bots : MonoBehaviour
     // Start is called before the first frame update
     public Material spartak, dinamo;
     public GameObject[] rivals = new GameObject[5];
+    private Rigidbody[] rivals_rb = new Rigidbody[5];
     private Transform[] rivals_transform = new Transform[5];
     private Renderer[] rivals_renderer = new Renderer[5];
 
@@ -14,6 +15,7 @@ public class Bots : MonoBehaviour
         for (int i = 0; i < 5; i++){
             rivals_transform[i] = rivals[i].GetComponent<Transform>();
             rivals_renderer[i] = rivals[i].GetComponent<Renderer>();
+            rivals[i].GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 
@@ -27,7 +29,7 @@ public class Bots : MonoBehaviour
                 rivals_renderer[i].material = spartak;
             else
                 rivals_renderer[i].material = dinamo;
-            rivals_transform[i].position.Set(0, 0, -30);
+            rivals_transform[i].localPosition = new Vector3(-4f, 0, -40f);
 
         }
 

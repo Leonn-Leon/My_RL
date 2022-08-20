@@ -19,8 +19,10 @@ public class Ball : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
-        main_team_agent.AddReward(-1e-3f);
-        main_team_agent.EndEpisode();
+        if (other.tag == "Wall"){
+            main_team_agent.AddReward(-1e-3f);
+            main_team_agent.EndEpisode();
+        }
     }
     private void OnTriggerEnter(Collider other) {
         Material trigger_mat = other.GetComponent<Renderer>().material;
@@ -35,11 +37,13 @@ public class Ball : MonoBehaviour
             if (!main_team_agent.red_team)
                 main_team_agent.AddReward(100f);
             else
-                main_team_agent.SetReward(-100f);
+                main_team_agent.AddReward(-100f);
             main_team_agent.EndEpisode();
         }
     }
     public void RandomPosition(){
-        ball_transform.position.Set(Random.Range(-3f, 3f), 1, Random.Range(-33f, 33f));
+        rb.velocity = new Vector3(0, 0, 0);
+        rb.angularVelocity = new Vector3(0, 0, 0);
+        ball_transform.localPosition  = new Vector3(Random.Range(-3f, 3f), 1.61f, Random.Range(-33f, 33f));
     }
 }
